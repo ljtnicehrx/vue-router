@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+<style>
+    body{
+        background-color: #e8e8e8;
+    }
+</style>
+<body>
+<div id="app">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="page-header">
+                <h1>最怕比你优秀的人比你努力</h1>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-2">
+            <div class="list-group">
+                <router-link  class="list-group-item" to="/lay">小绵羊</router-link>
+                <router-link  class="list-group-item" to="/rui">长腿芮</router-link>
+                <router-link  class="list-group-item" to="/lei">神算子</router-link>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <!--路由出口-->
+                    <router-view></router-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<template id="lay">
+    <div>
+        <h2>给大佬低头 为张总爆灯</h2>
+        <img src="img/01.jpg" alt="" width="250">
+        <p>艺兴勇敢飞 兴迷永相随</p>
+    </div>
+</template>
+<template id="rui">
+    <div>
+        <h2>大长腿分我10厘米好吗</h2>
+        <img src="img/03.jpeg"  width="250" alt="">
+        <p>大海啊都是水 溪芮啊都是腿</p>
+    </div>
+</template>
+<template id="lei">
+    <div>
+        <h2>不想当厨师的导演不是好演员</h2>
+        <img src="img/02.png" width="250" alt="">
+        <p>你惊艳了岁月 也惊艳了我</p>
+    </div>
+</template>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script src="css/bootstrap.js"></script>
+<script >
+    //1.创建组件
+    const lay=Vue.extend({
+        template:'#lay'
+    });
+    const rui=Vue.extend({
+        template:'#rui'
+    });
+    const lei=Vue.extend({
+        template:'#lei'
+    });
+    //2.定义路由
+    const routes=[
+        {path:'/lay',component:lay},
+        {path:'/rui',component:rui},
+        {path:'/lei',component:lei},
+        {path:'/',redirect:'/lay'},
+    ]
+    //3.创建路由实例
+    const router=new VueRouter({
+        routes
+    });
+    //4.创建vue实例 并挂载
+    new Vue({
+        router
+    }).$mount('#app')
+</script>
+</body>
+</html>

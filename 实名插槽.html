@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-computer>
+        <div slot="on">
+            不算爱
+        </div>
+        <div slot="tw">
+           加油 你能赢
+        </div>
+        <div slot="th">
+            也不好吧不出汗烦
+        </div>
+        <div slot="fo">
+            多说话脸上肉少
+        </div>
+    </my-computer>
+</div>
+<template id="my_computer">
+    <div>
+        <slot name="on">如果这都不算爱</slot>
+        <slot name="tw">今天怎么这么困</slot>
+        <slot name="tr">小学期不热还挺好</slot>
+        <slot name="fo">嘟嘟囔囔好烦</slot>
+    </div>
+</template>
+<script src="vue.js"></script>
+<script >
+    Vue.component('my-computer',{
+        template:'#my_computer'
+    })
+    new Vue({
+        el:'#app'
+    })
+</script>
+</body>
+</html>
